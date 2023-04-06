@@ -6,7 +6,7 @@
 /*   By: bel-kase <bel-kase@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 00:55:14 by bel-kase          #+#    #+#             */
-/*   Updated: 2023/04/04 02:47:02 by bel-kase         ###   ########.fr       */
+/*   Updated: 2023/04/05 23:54:19 by bel-kase         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,11 +48,11 @@ int	run_programme(int argc, char **argv)
 
 	run.size = argc - 1;
 	run.array = (int *)malloc(run.size * sizeof(int));
-	run.ii = 0;
-	while (run.ii < run.size)
+	run.i = 0;
+	while (run.i < run.size)
 	{
-		run.array[run.ii] = ft_atoi(argv[run.ii + 1]);
-		run.ii++;
+		run.array[run.i] = ft_atoi(argv[run.i + 1]);
+		run.i++;
 	}
 	head = init_list(run.array, run.size);
 	free(run.array);

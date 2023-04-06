@@ -6,7 +6,7 @@
 /*   By: bel-kase <bel-kase@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 00:55:38 by bel-kase          #+#    #+#             */
-/*   Updated: 2023/04/04 02:24:36 by bel-kase         ###   ########.fr       */
+/*   Updated: 2023/04/06 00:33:33 by bel-kase         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,20 +43,17 @@ long long int	ft_atoll(const char *str)
 	t_node	atoll;
 
 	atoll.sign = 1;
-	atoll.i_at = 0;
+	atoll.i = -1;
 	atoll.result = 0;
-	while (str[atoll.i_at] == ' ' || str[atoll.i_at] == '+')
-		atoll.i_at++;
-	if (str[atoll.i_at] == '-')
-	{
+	while (str[atoll.i] == ' ' || str[atoll.i] == '+')
+		atoll.i++;
+	if (str[atoll.i++] == '-')
 		atoll.sign = -1;
-		atoll.i_at++;
-	}
-	while (str[atoll.i_at] != '\0')
+	while (str[++atoll.i] != '\0')
 	{
-		if (str[atoll.i_at] < '0' || str[atoll.i_at] > '9')
+		if (str[atoll.i] < '0' || str[atoll.i] > '9')
 			return (0);
-		atoll.digit = str[atoll.i_at] - '0';
+		atoll.digit = str[atoll.i] - '0';
 		atoll.result = atoll.result * 10 + atoll.digit;
 		if (atoll.result > LLONG_MAX)
 		{
@@ -65,7 +62,6 @@ long long int	ft_atoll(const char *str)
 			else
 				return (LLONG_MIN);
 		}
-		atoll.i_at++;
 	}
 	return (atoll.result * atoll.sign);
 }

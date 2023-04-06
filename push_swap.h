@@ -6,7 +6,7 @@
 /*   By: bel-kase <bel-kase@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 00:57:19 by bel-kase          #+#    #+#             */
-/*   Updated: 2023/04/04 02:49:08 by bel-kase         ###   ########.fr       */
+/*   Updated: 2023/04/06 00:42:14 by bel-kase         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,8 @@
 
 typedef struct s_node
 {
-    int		        *array;
+	int				*array;
 	int				size;
-	int				ii;
 	int				content;
 	int				index;
 	int				value;
@@ -41,13 +40,11 @@ typedef struct s_node
 	long long int	result;
 	int				sign;
 	int				digit;
-	int				i_at;
 	int				p;
 	int				o;
 	int				z;
-    int             *arr;
-    
-    
+	int				*arr;
+
 }					t_node;
 
 /*array*/
@@ -60,7 +57,7 @@ void				ft_range_value_int(char **argv, int argc);
 void				array_to_index_dlist(t_node **stack, int *array, int size);
 
 /*print*/
-void				print_err(char *message);
+void				print_err(void);
 void				print_list(t_node *list);
 void				print_stack(t_node *pile_a);
 

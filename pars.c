@@ -6,7 +6,7 @@
 /*   By: bel-kase <bel-kase@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 00:56:08 by bel-kase          #+#    #+#             */
-/*   Updated: 2023/04/04 01:43:56 by bel-kase         ###   ########.fr       */
+/*   Updated: 2023/04/06 00:41:29 by bel-kase         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	ft_is_int(char *str)
 		i++;
 	while (str[i] != '\0')
 	{
-		if (str[i] < '0' || str[i] > '9')
+		if ((str[i] < '0' || str[i] > '9') && str[i] != ' ')
 			return (0);
 		i++;
 	}
@@ -40,7 +40,10 @@ void	ft_range_value_int(char **argv, int argc)
 	while (i < argc)
 	{
 		if (!ft_is_int(argv[i]))
+		{
+			print_err();
 			exit(1);
+		}
 		value = ft_atoll(argv[i]);
 		if (value > INT_MAX || value < INT_MIN)
 			exit(1);
